@@ -6,10 +6,8 @@ import sys
 _alnum = [c for c in range(256) if chr(c).isalnum()]
 
 def genpwd (length=8, charset=_alnum):
-    pwd = ''
-    for i in range(length):
-        pwd += chr(random.choice(charset))
-    return pwd
+    return reduce(lambda a,b: a+b, 
+                  [chr(random.choice(charset)) for  i in range(length)])
 
 
 if __name__ == '__main__':
